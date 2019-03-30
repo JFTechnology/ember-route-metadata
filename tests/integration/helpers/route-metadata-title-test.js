@@ -8,10 +8,9 @@ module('Integration | Helper | route-metadata-title', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
 
-    await render(hbs`{{route-metadata-title inputValue}}`);
+    await render(hbs`{{route-metadata-title}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), '');
   });
 });

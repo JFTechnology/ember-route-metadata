@@ -21,6 +21,6 @@ module('Integration | Component | bread-crumbs', function(hooks) {
       {{/bread-crumbs}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), '');
   });
 });
