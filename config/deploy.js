@@ -5,8 +5,8 @@ module.exports = function(deployTarget) {
   let ENV = {
     build: {},
     git: {
-      repo: 'git@github.com:JFTechnology/ember-route-metadata.git'
-    }
+      repo: 'git@github.com:JFTechnology/ember-route-metadata.git',
+    },
   };
 
   if (deployTarget === 'development') {
