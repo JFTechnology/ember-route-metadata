@@ -10,7 +10,7 @@
     "window scrolling",
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "git@github.com:JFTechnology/ember-route-metadata.git",
   "license": "MIT",
   "author": "",
   "directories": {
