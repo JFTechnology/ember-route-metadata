@@ -29,3 +29,7 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
+/.idea
+/config/addon-docs.js
+/deploy_*

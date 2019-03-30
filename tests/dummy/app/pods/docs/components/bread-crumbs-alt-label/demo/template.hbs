@@ -1,0 +1,17 @@
+{{#docs-demo as |demo|}}
+
+  {{#demo.example name="bread-crumbs-alt-label.hbs"}}
+    <BreadCrumbs/>
+  {{/demo.example}}
+
+  {{demo.snippet name="bread-crumbs-alt-label.hbs" label="Demo"}}
+
+  {{demo.snippet name="pods/application/route.js" label="Metadata : applicaton"}}
+  {{demo.snippet name="pods/docs/route.js" label="Metadata : docs"}}
+  {{demo.snippet name="pods/docs/components/route.js" label="Metadata : docs.component"}}
+  {{demo.snippet name="pods/docs/components/bread-crumbs-alt-label/route.js"
+                 label="Metadata : docs.component.bread-crumbs-alt-label"}}
+
+  {{demo.snippet name="dummy/en-gb.yaml" label="Intl : en-gb.yaml"}}
+
+{{/docs-demo}}
