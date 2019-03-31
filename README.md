@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/JFTechnology/ember-route-metadata.svg)](https://travis-ci.org/JFTechnology/ember-keycloak-auth)
+[![Ember Observer Score](http://emberobserver.com/ember-route-metadata.svg)](http://emberobserver.com/addons/ember-keycloak-auth)
+[![npm version](https://badge.fury.io/js/ember-route-metadata.svg)](https://badge.fury.io/js/ember-keycloak-auth)
+[![Dependency Status](https://david-dm.org/JFTechnology/ember-route-metadata.svg)](https://david-dm.org/JFTechnology/ember-keycloak-auth)
+[![devDependency Status](https://david-dm.org/JFTechnology/ember-route-metadata/dev-status.svg)](https://david-dm.org/JFTechnology/ember-keycloak-auth#info=devDependencies)
+
 @jftechnology/ember-route-metadata
 ==============================================================================
 
