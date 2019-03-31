@@ -11,9 +11,12 @@
     "scrolling",
     "ember-addon"
   ],
-  "repository": "git@github.com:JFTechnology/ember-route-metadata.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JFTechnology/ember-route-metadata"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "stephen.flynn@jftechnology.com",
   "directories": {
     "doc": "doc",
     "test": "tests"
