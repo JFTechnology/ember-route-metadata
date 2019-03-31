@@ -11,6 +11,7 @@ Breadcrumbs, page title management, and transition aware window scrolling levera
   <a href="https://github.com/emberjs/rfcs/blob/master/text/0398-RouteInfo-Metadata.md">[0398-RouteInfo-Metadata]</a>
   feature.
 
+See [addon docs](https://jftechnology.github.io/ember-route-metadata) for details.
 
 Compatibility
 ------------------------------------------------------------------------------
@@ -30,7 +31,8 @@ ember install @jftechnology/ember-route-metadata
 Usage
 ------------------------------------------------------------------------------
 
-See addon docs.
+
+See [addon docs](https://jftechnology.github.io/ember-route-metadata) for details.
 
 
 License
