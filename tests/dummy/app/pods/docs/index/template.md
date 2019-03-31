@@ -14,6 +14,7 @@ addon is targeted at Ember LTS 3.8+ / Ember Octane edition.
 * Uses new public [RouterService API](https://api.emberjs.com/ember/release/classes/RouterService) only.
 * Uses native classes and decorators.
 * No jQuery.
+* [Ember engine](https://github.com/ember-engines/ember-engines) friendly.
 
 ## About route metadata
 
