@@ -1,14 +1,16 @@
 @jftechnology/ember-route-metadata
 ==============================================================================
 
-[Short description of the addon.]
+Breadcrumbs, page title management, and transition aware window scrolling leveraging the new
+  <a href="https://github.com/emberjs/rfcs/blob/master/text/0398-RouteInfo-Metadata.md">[0398-RouteInfo-Metadata]</a>
+  feature.
 
 
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v2.18 or above
-* Ember CLI v2.13 or above
+* Ember.js v3.8 or above
+* Ember CLI v3.4 or above
 
 
 Installation
@@ -22,7 +24,7 @@ ember install @jftechnology/ember-route-metadata
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+See addon docs.
 
 
 License

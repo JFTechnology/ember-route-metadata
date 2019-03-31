@@ -5,7 +5,7 @@ export default class DocsComponentsBreadcrumbsAltComponentRoute extends Route {
   buildRouteInfoMetadata() {
     return {
       breadcrumb: {
-        component: 'alt-component',
+        component: 'custom-bread-crumb',
       },
     }
   }

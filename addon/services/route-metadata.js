@@ -1,19 +1,21 @@
 import Service from '@ember/service';
+import Evented from '@ember/object/evented';
 
 import { get, set } from '@ember/object';
+import { assign } from '@ember/polyfills';
 
 import { inject as service } from '@ember-decorators/service';
-import { computed } from '@ember-decorators/object';
+import { computed, observes } from '@ember-decorators/object';
 import { alias } from '@ember-decorators/object/computed';
 
-
 /**
- * Service that presents Ember route info based on metadata content.
+ * Service that presents Ember route info based on metadata content. The service fires events for each metadata
+ * key provided by any route segment traversed in a settled transition.
  *
  * @class RouteMetadataService
  * @public
  */
-export default class RouteMetadataService extends Service {
+export default class RouteMetadataService extends Service.extend(Evented) {
 
   /**
    * The injected Ember router service.
@@ -47,6 +49,39 @@ export default class RouteMetadataService extends Service {
   init() {
     super.init(...arguments);
     this.router.on('routeDidChange', (transition) => set(this, 'transition', transition));
+  }
+
+  /**
+   * Observer method that calculates all route segments traversed by a transition, aggregates any metadata keys in the
+   * traversal path, and fires an event ('metadata.[key]') for each key.
+   *
+   * @method onTransition
+   * @private
+   */
+  @observes('transition')
+  _onTransition() {
+
+    const previousMetadata = this.previousMetadata;
+    const currentMetadata = this.currentMetadata;
+
+    const commonMetadata = currentMetadata.filter((m, index) => {
+
+      if (previousMetadata.length <= index) {
+        return false;
+      }
+
+      return m.name === previousMetadata[index].name;
+    });
+
+    const fromMetadata = previousMetadata.slice(commonMetadata.length);
+    const toMetadata = currentMetadata.slice(commonMetadata.length);
+
+    const metadataTraversal = {};
+
+    fromMetadata.map(r => r.metadata).forEach(m => assign(metadataTraversal, m));
+    toMetadata.map(r => r.metadata).forEach(m => assign(metadataTraversal, m));
+
+    Object.keys(metadataTraversal).forEach(key => this.trigger(`metadata.${key}`, key, this.transition));
   }
 
   /**

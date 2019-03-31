@@ -3,19 +3,33 @@ import Helper from '@ember/component/helper';
 import { getWithDefault } from '@ember/object';
 
 import { inject as service } from '@ember-decorators/service';
-import { observes } from '@ember-decorators/object';
 
+/**
+ * Helper that listens to the RouteMetadata service for 'metadata.scroll' events and calls the window.scrollTo(x,y) method accordingly.
+ *
+ * Can be added as {{route-metadata-scroll}} to the application template.
+ *
+ * @class RouteMetadataScroll
+ * @public
+ */
 export default class RouteMetadataScroll extends Helper {
 
   @service
   routeMetadata;
 
-  @observes('routeMetadata.currentRoute')
-  onChange() {
-    this.recompute();
+  init() {
+    super.init(...arguments);
+    this.routeMetadata.on('metadata.scroll', this, 'recompute');
+  }
+
+  destroy() {
+    this.routeMetadata.off('metadata.scroll', this, 'recompute');
+    return super.destroy(...arguments);
   }
 
   compute() {
+
+    // console.debug(`RouteMetadataScroll : compute`);
 
     try {
 
