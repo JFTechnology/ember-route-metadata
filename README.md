@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/JFTechnology/ember-route-metadata.svg)](https://travis-ci.org/JFTechnology/ember-route-metadata)
-[![Ember Observer Score](http://emberobserver.com/@jftechnology/ember-route-metadata.svg)](http://emberobserver.com/addons/@jftechnology/ember-route-metadata)
+[![Ember Observer Score](https://emberobserver.com/badges/-jftechnology-ember-route-metadata.svg)](https://emberobserver.com/addons/@jftechnology/ember-route-metadata)
 [![npm version](https://badge.fury.io/js/%40jftechnology%2Fember-route-metadata.svg)](https://badge.fury.io/js/%40jftechnology%2Fember-route-metadata)
 [![Dependency Status](https://david-dm.org/JFTechnology/ember-route-metadata.svg)](https://david-dm.org/JFTechnology/ember-route-metadata)
 [![devDependency Status](https://david-dm.org/JFTechnology/ember-route-metadata/dev-status.svg)](https://david-dm.org/JFTechnology/ember-route-metadata#info=devDependencies)
