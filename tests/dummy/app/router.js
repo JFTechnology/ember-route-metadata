@@ -19,6 +19,7 @@ Router.map(function() {
       this.route('scroll-helper');
       this.route('title-helper');
       this.route('title-helper-alt-label');
+      this.route('title-helper-function');
     });
   });
 

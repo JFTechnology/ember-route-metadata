@@ -1,5 +1,7 @@
 import Helper from '@ember/component/helper';
 
+import { typeOf } from '@ember/utils';
+
 import { getWithDefault } from '@ember/object';
 
 import { inject as service } from '@ember-decorators/service';
@@ -41,9 +43,13 @@ export default class RouteMetadataTitle extends Helper {
 
     const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
 
-    document.title = routeInfos
-      .map(r => getWithDefault(r, `metadata.${this.metadataKey}.label`, `route-metadata.${r.name}.page-title`))
-      .map(label => this.intl.t(label))
-      .join(' | ');
+    document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
+  }
+
+  _toLabel(routeInfo) {
+
+    const label = getWithDefault(routeInfo, `metadata.${this.metadataKey}.label`, `route-metadata.${routeInfo.name}.page-title`)
+
+    return typeOf(label) === 'function' ? label(routeInfo) : this.intl.t(label);
   }
 }

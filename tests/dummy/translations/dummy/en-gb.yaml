@@ -39,5 +39,9 @@ route-metadata:
       title-helper-alt-label:
         bread-crumb: 'Title (Alt)'
         page-title: 'IGNORED'
+      # Route docs.components.title-helper-function
+      title-helper-function:
+        bread-crumb: 'Title (Function)'
+        page-title: 'IGNORED'
 
 alt-label: 'Alternative label'
