@@ -9,6 +9,8 @@ import { classNames, layout } from '@ember-decorators/component';
 import template from '../templates/components/bread-crumbs';
 
 /**
+ * Component {{bread-crumbs}}.
+ *
  * @class BreadCrumbs
  * @public
  */

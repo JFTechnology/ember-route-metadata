@@ -13,6 +13,8 @@ import { classNames, layout, tagName } from '@ember-decorators/component';
 import template from '../../templates/components/bread-crumbs/bread-crumb';
 
 /**
+ * Component {{bread-crumbs/bread-crumb}}.
+ *
  * Default component to render a single route segment. Key properties are set by parent {{bread-crumbs}} component.
  * Extending this class should be the easiest way to create a custom renderer.
  *
@@ -57,7 +59,26 @@ export default class BreadCrumb extends Component {
   @argument('number')
   index = 0;
 
-  @readOnly('routeInfo.metadata.breadcrumb')
+  /**
+   * The metadata for this RouteInfo segment. Read-only property.
+   *
+   * @property metadata
+   * @type {object}
+   * @public
+   * @readonly
+   */
+  @readOnly('routeInfo.metadata')
+  metadata;
+
+  /**
+   * The breadcrumb metadata for this RouteInfo segment. Read-only property.
+   *
+   * @property breadcrumb
+   * @type {object}
+   * @public
+   * @readonly
+   */
+  @readOnly('metadata.breadcrumb')
   breadcrumb;
 
   @readOnly('routeInfo.name')
