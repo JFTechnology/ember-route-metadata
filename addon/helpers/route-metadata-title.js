@@ -21,31 +21,29 @@ export default class RouteMetadataTitle extends Helper {
   @service
   intl;
 
+  /**
+   * The metadata key to listen for.
+   * @type {string}
+   */
+  metadataKey = 'title';
+
   init() {
     super.init(...arguments);
-    this.routeMetadata.on('metadata.title', this, 'recompute');
+    this.routeMetadata.on(`metadata.${this.metadataKey}`, this, 'recompute');
   }
 
   destroy() {
-    this.routeMetadata.off('metadata.title', this, 'recompute');
+    this.routeMetadata.off(`metadata.${this.metadataKey}`, this, 'recompute');
     return super.destroy(...arguments);
   }
 
   compute() {
 
-    // console.debug(`RouteMetadataTitle : compute`);
+    const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
 
-    try {
-
-      const titleMetadata = this.routeMetadata.findCurrentMetadata('title');
-
-      document.title = titleMetadata
-        .map(r => getWithDefault(r, 'metadata.title.label', `route-metadata.${r.name}.page-title`))
-        .map(label => this.intl.t(label))
-        .join(' | ');
-
-    } catch (error) {
-      console.error(error);
-    }
+    document.title = routeInfos
+      .map(r => getWithDefault(r, `metadata.${this.metadataKey}.label`, `route-metadata.${r.name}.page-title`))
+      .map(label => this.intl.t(label))
+      .join(' | ');
   }
 }

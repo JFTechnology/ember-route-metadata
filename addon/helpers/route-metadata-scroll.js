@@ -17,36 +17,34 @@ export default class RouteMetadataScroll extends Helper {
   @service
   routeMetadata;
 
+  /**
+   * The metadata key to listen for.
+   * @type {string}
+   */
+  metadataKey = 'scroll';
+
   init() {
     super.init(...arguments);
-    this.routeMetadata.on('metadata.scroll', this, 'recompute');
+    this.routeMetadata.on(`metadata.${this.metadataKey}`, this, 'recompute');
   }
 
   destroy() {
-    this.routeMetadata.off('metadata.scroll', this, 'recompute');
+    this.routeMetadata.off(`metadata.${this.metadataKey}`, this, 'recompute');
     return super.destroy(...arguments);
   }
 
   compute() {
 
-    // console.debug(`RouteMetadataScroll : compute`);
+    const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
 
-    try {
+    if (routeInfos.length) {
 
-      const scrollMetadata = this.routeMetadata.findTransitionMetadata('scroll');
+      const metadata = routeInfos.pop();
 
-      if (scrollMetadata.length) {
+      const x = getWithDefault(metadata, `metadata.${this.metadataKey}.x`, 0);
+      const y = getWithDefault(metadata, `metadata.${this.metadataKey}.y`, 0);
 
-        const metadata = scrollMetadata.pop();
-
-        const x = getWithDefault(metadata, 'metadata.scroll.x', 0);
-        const y = getWithDefault(metadata, 'metadata.scroll.y', 0);
-
-        window.scrollTo(x, y);
-      }
-
-    } catch (error) {
-      console.error(error);
+      window.scrollTo(x, y);
     }
   }
 }
