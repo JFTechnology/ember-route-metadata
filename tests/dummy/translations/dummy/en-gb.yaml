@@ -45,3 +45,8 @@ route-metadata:
         page-title: 'IGNORED'
 
 alt-label: 'Alternative label'
+
+not-found:
+  title: 'Not found'
+  text: 'This page does not exist.'
+
