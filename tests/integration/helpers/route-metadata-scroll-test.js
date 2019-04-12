@@ -6,8 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Helper | route-metadata-scroll', function(hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
-  test('it renders', async function(assert) {
+  test('Test no output', async function(assert) {
 
     await render(hbs`{{route-metadata-scroll}}`);
 

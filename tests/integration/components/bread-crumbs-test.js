@@ -6,11 +6,14 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | bread-crumbs', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('Render #1', async function(assert) {
 
     await render(hbs`{{bread-crumbs}}`);
+
+    assert.equal(this.element.textContent.trim(), '');
+  });
+
+  test('Render #2', async function(assert) {
 
     assert.equal(this.element.textContent.trim(), '');
 
