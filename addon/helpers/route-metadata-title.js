@@ -25,7 +25,7 @@ export default class RouteMetadataTitle extends Helper {
 
   /**
    * The metadata key to listen for.
-   * @type {string}
+   * @property {string}
    */
   metadataKey = 'title';
 

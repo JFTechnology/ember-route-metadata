@@ -19,7 +19,7 @@ export default class RouteMetadataScroll extends Helper {
 
   /**
    * The metadata key to listen for.
-   * @type {string}
+   * @property {string}
    */
   metadataKey = 'scroll';
 
