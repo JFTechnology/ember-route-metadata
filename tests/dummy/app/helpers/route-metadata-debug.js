@@ -10,16 +10,12 @@ export default class RouteMetadataDebug extends Helper {
   init() {
     super.init(...arguments);
 
-    console.log(`RouteMetadataDebug : init`);
-
     this.routeMetadata.on('metadata.breadcrumb', this, 'onEvent');
     this.routeMetadata.on('metadata.scroll', this, 'onEvent');
     this.routeMetadata.on('metadata.title', this, 'onEvent');
   }
 
   destroy() {
-
-    console.log(`RouteMetadataDebug : destroy`);
 
     this.routeMetadata.off('metadata.breadcrumb', this, 'onEvent');
     this.routeMetadata.off('metadata.scroll', this, 'onEvent');
