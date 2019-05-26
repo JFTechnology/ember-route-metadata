@@ -1,0 +1,48 @@
+route-metadata:
+  # Route application
+  application:
+    bread-crumb: 'Route Metadata demo app'
+    page-title: 'Route Metadata'
+  # Route docs
+  docs:
+    bread-crumb: 'Docs'
+    page-title: 'Docs'
+    # Route docs.index
+    index:
+      bread-crumb: 'Introduction'
+      page-title: 'Intro'
+    # Route docs.components
+    components:
+      bread-crumb: 'Components'
+      page-title: 'Components'
+      # Route docs.components.bread-crumbs
+      bread-crumbs:
+        bread-crumb: 'Bread crumbs'
+      # Route docs.components.bread-crumbs-alt-icon
+      bread-crumbs-alt-icon:
+        bread-crumb: 'Alternative icon'
+      # Route docs.components.bread-crumbs-alt-label
+      bread-crumbs-alt-label:
+        bread-crumb: 'IGNORED'
+      # Route docs.components.bread-crumbs-function
+      bread-crumbs-function:
+        bread-crumb: 'IGNORED'
+      # Route docs.components.scroll-helper
+      scroll-helper:
+        bread-crumb: 'Scroll'
+        page-title: 'Scroll'
+      # Route docs.components.title-helper
+      title-helper:
+        bread-crumb: 'Title'
+        page-title: 'Title'
+      # Route docs.components.title-helper-alt-label
+      title-helper-alt-label:
+        bread-crumb: 'Title (Alt)'
+        page-title: 'IGNORED'
+      # Route docs.components.title-helper-function
+      title-helper-function:
+        bread-crumb: 'Title (Function)'
+        page-title: 'IGNORED'
+
+alt-label: 'Alternative label'
+

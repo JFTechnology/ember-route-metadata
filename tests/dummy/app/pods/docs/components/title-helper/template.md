@@ -18,7 +18,7 @@ To add a titles to an application...
   {{demo.snippet name="pods/docs/route.js" label="Metadata : docs"}}
   {{demo.snippet name="pods/docs/components/route.js" label="Metadata : docs.component"}}
 
-  {{demo.snippet name="dummy/en-gb.yaml" label="en-gb.yaml (i18n)"}}
+  {{demo.snippet name="dummy/route-metadata/en-gb.yaml" label="en-gb.yaml (i18n)"}}
 
 {{/docs-demo}}
 

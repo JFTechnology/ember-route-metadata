@@ -7,6 +7,6 @@ be defined in the metadata as follows...
 
   {{demo.snippet name="pods/docs/components/title-helper-alt-label/route.js" label="Metadata"}}
 
-  {{demo.snippet name="dummy/en-gb.yaml" label="en-gb.yaml (i18n)"}}
+  {{demo.snippet name="dummy/route-metadata/en-gb.yaml" label="en-gb.yaml (i18n)"}}
 
 {{/docs-demo}}
