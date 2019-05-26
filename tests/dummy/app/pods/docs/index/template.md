@@ -12,7 +12,7 @@ addon is targeted at Ember LTS 3.8+ / Ember Octane edition.
 * Transition aware scrolling on route entry. 
 * Built-in internationalisation using [ember-intl](https://github.com/ember-intl/ember-intl).
 * Uses new public [RouterService API](https://api.emberjs.com/ember/release/classes/RouterService) only.
-* Uses native classes and decorators.
+* Uses native classes and Stage 1 decorators.
 * No jQuery.
 * [Ember engine](https://github.com/ember-engines/ember-engines) friendly.
 
