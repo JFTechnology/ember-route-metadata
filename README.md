@@ -16,8 +16,8 @@ See [addon docs](https://jftechnology.github.io/ember-route-metadata) for detail
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.8 or above
-* Ember CLI v3.4 or above
+* Ember.js (LTS) v3.8 or above (requires ember-decorators-polyfill for Ember versions < 3.10)
+* Ember CLI v3.8 or above
 
 
 Installation
@@ -25,6 +25,12 @@ Installation
 
 ```
 ember install @jftechnology/ember-route-metadata
+```
+
+For Ember 3.8 / 3.9 you need to install the decorator polyfill as well...
+
+```
+ember install ember-decorators-polyfill
 ```
 
 

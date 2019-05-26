@@ -1,8 +1,7 @@
 import Component from '@ember/component';
 
-import { action, computed } from '@ember-decorators/object';
-import { inject as service } from '@ember-decorators/service';
-import { argument } from '@ember-decorators/argument';
+import { action, computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 import { classNames, layout } from '@ember-decorators/component';
 
@@ -28,7 +27,6 @@ export default class BreadCrumbs extends Component {
    * @property defaultComponent
    * @type {string}
    */
-  @argument('string')
   defaultComponent = 'bread-crumbs/bread-crumb';
 
   /**
@@ -38,7 +36,6 @@ export default class BreadCrumbs extends Component {
    * @property defaultIconClass
    * @type {string}
    */
-  @argument('string')
   defaultIconClass = 'fa fa-angle-double-right fa-fw';
 
   @computed('routeMetadata.currentRoute')

@@ -1,12 +1,11 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import Evented from '@ember/object/evented';
 
-import { get, set } from '@ember/object';
-import { assign } from '@ember/polyfills';
+import { computed, get, set } from '@ember/object';
+import { alias } from '@ember/object/computed';
 
-import { inject as service } from '@ember-decorators/service';
-import { computed, observes } from '@ember-decorators/object';
-import { alias } from '@ember-decorators/object/computed';
+import { assign } from '@ember/polyfills';
+import { observes } from '@ember-decorators/object';
 
 /**
  * Service that presents Ember route info based on metadata content. The service fires events for each metadata

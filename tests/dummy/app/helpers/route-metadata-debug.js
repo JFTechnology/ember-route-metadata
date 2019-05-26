@@ -1,6 +1,6 @@
 import Helper from '@ember/component/helper';
 
-import { inject as service } from '@ember-decorators/service';
+import { inject as service } from '@ember/service';
 
 export default class RouteMetadataDebug extends Helper {
 

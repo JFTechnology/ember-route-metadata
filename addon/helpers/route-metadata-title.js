@@ -4,7 +4,7 @@ import { typeOf } from '@ember/utils';
 
 import { getWithDefault } from '@ember/object';
 
-import { inject as service } from '@ember-decorators/service';
+import { inject as service } from '@ember/service';
 
 /**
  * Helper class that listens the RouteMetadata service for 'metadata.title' events, calculates the current internationalized title, and sets the

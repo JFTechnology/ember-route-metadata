@@ -1,12 +1,10 @@
 import Component from '@ember/component';
-import BreadCrumbs from '../bread-crumbs';
 
 import { typeOf } from '@ember/utils';
 
-import { computed } from '@ember-decorators/object';
-import { readOnly } from '@ember-decorators/object/computed';
-import { inject as service } from '@ember-decorators/service';
-import { argument } from '@ember-decorators/argument';
+import { computed } from '@ember/object';
+import { readOnly } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 import { classNames, layout, tagName } from '@ember-decorators/component';
 
@@ -36,7 +34,6 @@ export default class BreadCrumb extends Component {
    * @type {BreadCrumbs}
    * @public
    */
-  @argument(BreadCrumbs)
   parent;
 
   /**
@@ -46,7 +43,6 @@ export default class BreadCrumb extends Component {
    * @type {RouteInfo}
    * @public
    */
-  @argument('object')
   routeInfo;
 
   /**
@@ -56,7 +52,6 @@ export default class BreadCrumb extends Component {
    * @type {number}
    * @public
    */
-  @argument('number')
   index = 0;
 
   /**

@@ -2,7 +2,7 @@ import Helper from '@ember/component/helper';
 
 import { getWithDefault } from '@ember/object';
 
-import { inject as service } from '@ember-decorators/service';
+import { inject as service } from '@ember/service';
 
 /**
  * Helper that listens to the RouteMetadata service for 'metadata.scroll' events and calls the window.scrollTo(x,y) method accordingly.
