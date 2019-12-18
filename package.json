@@ -1,6 +1,6 @@
 {
   "name": "@jftechnology/ember-route-metadata",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Components, services and helpers built on Ember Route Metadata. Breadcrumbs, titles and scrolling for Ember apps.",
   "keywords": [
     "jftechnology",
