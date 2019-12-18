@@ -1,14 +1,10 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-import { typeOf } from '@ember/utils';
+import {typeOf} from '@ember/utils';
 
-import { computed } from '@ember/object';
-import { readOnly } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
-
-import { classNames, layout, tagName } from '@ember-decorators/component';
-
-import template from '../../templates/components/bread-crumbs/bread-crumb';
+import {computed} from '@ember/object';
+import {readOnly} from '@ember/object/computed';
+import {inject as service} from '@ember/service';
 
 /**
  * Component {{bread-crumbs/bread-crumb}}.
@@ -19,9 +15,6 @@ import template from '../../templates/components/bread-crumbs/bread-crumb';
  * @class BreadCrumb
  * @public
  */
-@layout(template)
-@tagName('span')
-@classNames('bread-crumb')
 export default class BreadCrumb extends Component {
 
   @service
@@ -34,6 +27,7 @@ export default class BreadCrumb extends Component {
    * @type {BreadCrumbs}
    * @public
    */
+  @readOnly('args.parent')
   parent;
 
   /**
@@ -43,6 +37,7 @@ export default class BreadCrumb extends Component {
    * @type {RouteInfo}
    * @public
    */
+  @readOnly('args.routeInfo')
   routeInfo;
 
   /**
@@ -52,6 +47,7 @@ export default class BreadCrumb extends Component {
    * @type {number}
    * @public
    */
+  @readOnly('args.index')
   index = 0;
 
   /**

@@ -1,11 +1,7 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-import { action, computed } from '@ember/object';
-import { inject as service } from '@ember/service';
-
-import { classNames, layout } from '@ember-decorators/component';
-
-import template from '../templates/components/bread-crumbs';
+import {action, computed} from '@ember/object';
+import {inject as service} from '@ember/service';
 
 /**
  * Component {{bread-crumbs}}.
@@ -13,8 +9,6 @@ import template from '../templates/components/bread-crumbs';
  * @class BreadCrumbs
  * @public
  */
-@layout(template)
-@classNames('bread-crumbs')
 export default class BreadCrumbs extends Component {
 
   @service
@@ -27,7 +21,9 @@ export default class BreadCrumbs extends Component {
    * @property defaultComponent
    * @type {string}
    */
-  defaultComponent = 'bread-crumbs/bread-crumb';
+  get defaultComponent() {
+    return this.args.defaultComponent || 'bread-crumbs/bread-crumb';
+  }
 
   /**
    * The default icon class used to prefix each individual bread crumb.
@@ -36,11 +32,12 @@ export default class BreadCrumbs extends Component {
    * @property defaultIconClass
    * @type {string}
    */
-  defaultIconClass = 'fa fa-angle-double-right fa-fw';
+  get defaultIconClass() {
+    return this.args.defaultIconClass || 'fa fa-angle-double-right fa-fw';
+  }
 
   @computed('routeMetadata.currentRoute')
   get routeInfos() {
-
     return this.routeMetadata.findCurrentMetadata('breadcrumb');
   }
 

@@ -1,0 +1,10 @@
+<div class="bread-crumbs" ...attributes>
+  {{#each this.routeInfos as |routeInfo index|}}
+    {{component
+            (if routeInfo.metadata.breadcrumb.component routeInfo.metadata.breadcrumb.component this.defaultComponent)
+            parent=this
+            routeInfo=routeInfo
+            index=index
+    }}
+  {{/each}}
+</div>

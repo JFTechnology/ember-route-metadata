@@ -1,8 +1,0 @@
-{{#each routeInfos as |routeInfo index|}}
-  {{component
-    (if routeInfo.metadata.breadcrumb.component routeInfo.metadata.breadcrumb.component defaultComponent)
-    parent=this
-    routeInfo=routeInfo
-    index=index
-  }}
-{{/each}}
