@@ -9,7 +9,8 @@
     "breadcrumbs",
     "title",
     "scrolling",
-    "ember-addon"
+    "ember-addon",
+    "octane"
   ],
   "repository": {
     "type": "git",

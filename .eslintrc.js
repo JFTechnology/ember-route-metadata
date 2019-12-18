@@ -22,13 +22,15 @@ module.exports = {
     browser: true
   },
   rules: {
-    "no-console": "warn",
-    'ember/no-jquery': 'error'
+    'no-console': 1,
+    'ember/no-jquery': 1,
+    'ember/no-observers': 1,
   },
   overrides: [
     // node files
     {
       files: [
+        '.ember-cli.js',
         '.eslintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
