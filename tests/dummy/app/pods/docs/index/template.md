@@ -23,9 +23,9 @@ standardised hook for a route to provide information to the Ember [RouterService
 
 An example metadata builder method on a route...
 
-{{#docs-demo as |demo|}}
-  {{demo.snippet name="pods/docs/components/route.js"}}
-{{/docs-demo}}
+<DocsDemo as |demo|>
+  <demo.snippet @name="pods/docs/components/route.js"/>
+</DocsDemo>
 
 The metadata can be access by clients of the RouterService via the metadata property of the 
 [RouteInfo](https://api.emberjs.com/ember/release/classes/RouteInfoWithAttributes) object.

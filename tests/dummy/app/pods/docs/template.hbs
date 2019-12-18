@@ -1,7 +1,7 @@
-{{docs-header}}
+<DocsHeader/>
 
-{{#docs-viewer as |viewer|}}
-  {{#viewer.nav as |nav|}}
+<DocsViewer as |viewer|>
+  <viewer.nav as |nav|>
 
     {{nav.item "Introduction" "docs.index"}}
 
@@ -18,10 +18,10 @@
     {{nav.item "Page titles - function" "docs.components.title-helper-function"}}
     {{nav.item "Scroll" "docs.components.scroll-helper"}}
 
-  {{/viewer.nav}}
+  </viewer.nav>
 
   {{#viewer.main}}
     {{outlet}}
   {{/viewer.main}}
 
-{{/docs-viewer}}
+</DocsViewer>

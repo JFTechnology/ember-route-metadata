@@ -1,17 +1,17 @@
-{{#docs-demo as |demo|}}
+<DocsDemo as |demo|>
 
-  {{#demo.example name="bread-crumbs-alt-icon.hbs"}}
+  <demo.example @name="bread-crumbs-alt-icon.hbs">
     <BreadCrumbs/>
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet name="bread-crumbs-alt-icon.hbs" label="Demo"}}
+  <demo.snippet @name="bread-crumbs-alt-icon.hbs" @label="Demo"/>
 
-  {{demo.snippet name="pods/application/route.js" label="Metadata : applicaton"}}
-  {{demo.snippet name="pods/docs/route.js" label="Metadata : docs"}}
-  {{demo.snippet name="pods/docs/components/route.js" label="Metadata : docs.component"}}
-  {{demo.snippet name="pods/docs/components/bread-crumbs-alt-icon/route.js"
-                 label="Metadata : docs.component.bread-crumbs-alt-icon"}}
+  <demo.snippet @name="pods/application/route.js" @label="Metadata : applicaton"/>
+  <demo.snippet @name="pods/docs/route.js" @label="Metadata : docs"/>
+  <demo.snippet @name="pods/docs/components/route.js" @label="Metadata : docs.component"/>
+  <demo.snippet @name="pods/docs/components/bread-crumbs-alt-icon/route.js"
+                @label="Metadata : docs.component.bread-crumbs-alt-icon"/>
 
-  {{demo.snippet name="dummy/route-metadata/en-gb.yaml" label="en-gb.yaml (i18n)"}}
+  <demo.snippet @name="dummy/route-metadata/en-gb.yaml" @label="en-gb.yaml (i18n)"/>
 
-{{/docs-demo}}
+</DocsDemo>
