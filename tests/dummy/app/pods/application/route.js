@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-import { inject as service } from '@ember/service';
+import {inject as service} from '@ember/service';
 
 export default class ApplicationRoute extends Route {
 
@@ -22,7 +22,7 @@ export default class ApplicationRoute extends Route {
     return {
       title: true,
       breadcrumb: {
-        icon: 'fa fa-home fa-fw'
+        icon: '#home'
       },
     }
   }

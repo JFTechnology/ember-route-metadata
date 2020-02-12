@@ -33,7 +33,7 @@ export default class BreadCrumbs extends Component {
    * @type {string}
    */
   get defaultIconClass() {
-    return this.args.defaultIconClass || 'fa fa-angle-double-right fa-fw';
+    return this.args.defaultIconClass || '#chevron-right';
   }
 
   @computed('routeMetadata.currentRoute')

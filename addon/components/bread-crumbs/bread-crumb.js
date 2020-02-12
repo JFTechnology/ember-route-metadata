@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import {typeOf} from '@ember/utils';
 
-import {computed} from '@ember/object';
+import {action, computed} from '@ember/object';
 import {readOnly} from '@ember/object/computed';
 import {inject as service} from '@ember/service';
 
@@ -99,7 +99,8 @@ export default class BreadCrumb extends Component {
     return this.breadcrumbIcon || this.parent.defaultIconClass;
   }
 
-  mouseUp() {
+  @action
+  transition() {
     this.parent.transition(this.routeInfo);
   }
 }

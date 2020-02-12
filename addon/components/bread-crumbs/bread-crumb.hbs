@@ -1,3 +1,13 @@
-<span class="bread-crumb">
-<i class={{this.icon}}/> {{this.text}}
+<span
+  {{on 'click' (fn this.transition)}}
+        class="bread-crumb"
+        role="button"
+        ...attributes
+>
+  <svg class="icon">
+    <use xlink:href="{{this.icon}}"/>
+  </svg>
+  <span class="label">
+    {{this.text}}
+  </span>
 </span>

@@ -5,7 +5,13 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
-    snippetPaths: ['tests/dummy/app', 'tests/dummy/translations', 'addon']
+    snippetPaths: ['tests/dummy/app', 'tests/dummy/translations', 'addon'],
+    svgJar: {
+      strategy: 'symbol',
+      sourceDirs: [
+        'tests/dummy/public/images/fa-icons',
+      ],
+    },
   });
 
   /*
