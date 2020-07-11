@@ -1,11 +1,11 @@
-import Service, { inject as service } from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 import Evented from '@ember/object/evented';
 
-import { computed, get, set } from '@ember/object';
-import { alias } from '@ember/object/computed';
+import {computed, get, set} from '@ember/object';
+import {alias} from '@ember/object/computed';
 
-import { assign } from '@ember/polyfills';
-import { observes } from '@ember-decorators/object';
+import {assign} from '@ember/polyfills';
+import {observes} from '@ember-decorators/object';
 
 /**
  * Service that presents Ember route info based on metadata content. The service fires events for each metadata
@@ -24,6 +24,9 @@ export default class RouteMetadataService extends Service.extend(Evented) {
    */
   @service
   router;
+
+  @service
+  fastboot;
 
   transition;
 
@@ -44,6 +47,15 @@ export default class RouteMetadataService extends Service.extend(Evented) {
    */
   @alias('transition.to')
   currentRoute;
+
+  /**
+   * The 'from' route of the last settled route transition.
+   *
+   * @property previousRoute
+   * @type {RouteInfo}
+   */
+  @alias('fastboot.isFastBoot')
+  isFastBoot;
 
   init() {
     super.init(...arguments);

@@ -23,6 +23,9 @@ export default class RouteMetadataTitle extends Helper {
   @service
   intl;
 
+  @service
+  fastboot;
+
   /**
    * The metadata key to listen for.
    * @property {string}
@@ -41,10 +44,7 @@ export default class RouteMetadataTitle extends Helper {
 
   compute() {
 
-    // document may not exist - e.g. in fastboot environment
-    if (document) {
-      
-      // if it does then calculate the title
+    if (!this.routeMetadata.isFastBoot) {
       const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
       document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
     }
