@@ -28,9 +28,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each",
-    "preversion": "yarn test",
-    "postversion": "git push && git push --tags && yarn publish && echo \"Successfully released version $npm_package_version!\""
+    "test:all": "ember try:each"
   },
   "dependencies": {
     "ember-cli-babel": "^7.20.3",
