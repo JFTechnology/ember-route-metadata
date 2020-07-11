@@ -1,8 +1,8 @@
 import Helper from '@ember/component/helper';
 
-import { getWithDefault } from '@ember/object';
+import {getWithDefault} from '@ember/object';
 
-import { inject as service } from '@ember/service';
+import {inject as service} from '@ember/service';
 
 /**
  * Helper that listens to the RouteMetadata service for 'metadata.scroll' events and calls the window.scrollTo(x,y) method accordingly.
@@ -35,16 +35,19 @@ export default class RouteMetadataScroll extends Helper {
 
   compute() {
 
-    const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
+    if (!this.routeMetadata.isFastBoot) {
 
-    if (routeInfos.length) {
+      const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
 
-      const metadata = routeInfos.pop();
+      if (routeInfos.length) {
 
-      const x = getWithDefault(metadata, `metadata.${this.metadataKey}.x`, 0);
-      const y = getWithDefault(metadata, `metadata.${this.metadataKey}.y`, 0);
+        const metadata = routeInfos.pop();
 
-      window.scrollTo(x, y);
+        const x = getWithDefault(metadata, `metadata.${this.metadataKey}.x`, 0);
+        const y = getWithDefault(metadata, `metadata.${this.metadataKey}.y`, 0);
+
+        window.scrollTo(x, y);
+      }
     }
   }
 }
