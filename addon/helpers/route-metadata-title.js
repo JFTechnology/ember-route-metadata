@@ -1,10 +1,10 @@
 import Helper from '@ember/component/helper';
 
-import { typeOf } from '@ember/utils';
+import {typeOf} from '@ember/utils';
 
-import { getWithDefault } from '@ember/object';
+import {getWithDefault} from '@ember/object';
 
-import { inject as service } from '@ember/service';
+import {inject as service} from '@ember/service';
 
 /**
  * Helper class that listens the RouteMetadata service for 'metadata.title' events, calculates the current internationalized title, and sets the
@@ -41,9 +41,13 @@ export default class RouteMetadataTitle extends Helper {
 
   compute() {
 
-    const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
-
-    document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
+    // document may not exist - e.g. in fastboot environment
+    if (document) {
+      
+      // if it does then calculate the title
+      const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
+      document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
+    }
   }
 
   _toLabel(routeInfo) {
