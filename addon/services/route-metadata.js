@@ -194,5 +194,5 @@ function _filterForMetadata(route) {
     });
   }
 
-  return routeInfos.filter(info => get(info, 'metadata'));
+  return routeInfos.filter(info => info.metadata);
 }

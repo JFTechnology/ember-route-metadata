@@ -81,7 +81,7 @@ export default class BreadCrumb extends Component {
   @readOnly('breadcrumb.icon')
   breadcrumbIcon;
 
-  @computed('breadcrumbLabel')
+  @computed('breadcrumbLabel', 'routeInfo', 'routeName')
   get text() {
 
     if (typeOf(this.breadcrumbLabel) === 'function') {
@@ -94,7 +94,7 @@ export default class BreadCrumb extends Component {
     return this.intl.t(label);
   }
 
-  @computed('breadcrumbIcon')
+  @computed('breadcrumbIcon', 'parent.defaultIconClass')
   get icon() {
     return this.breadcrumbIcon || this.parent.defaultIconClass;
   }
