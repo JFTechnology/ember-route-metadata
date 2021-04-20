@@ -12,7 +12,7 @@ To add a titles to an application...
 
 <DocsDemo as |demo|>
     <demo.snippet @name="pods/application/template.hbs" @label="Application template"/>
-    <demo.snippet @name="pods/application/route.js" @label="Metadata : applicaton"/>
+    <demo.snippet @name="pods/application/route.js" @label="Metadata : application"/>
     <demo.snippet @name="pods/docs/route.js" @label="Metadata : docs"/>
     <demo.snippet @name="pods/docs/components/route.js" @label="Metadata : docs.component"/>
     <demo.snippet @name="dummy/route-metadata/en-gb.yaml" @label="en-gb.yaml (i18n)"/>
