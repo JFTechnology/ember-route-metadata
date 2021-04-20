@@ -2,8 +2,7 @@ import Component from '@glimmer/component';
 
 import {typeOf} from '@ember/utils';
 
-import {action, computed} from '@ember/object';
-import {readOnly} from '@ember/object/computed';
+import {action} from '@ember/object';
 import {inject as service} from '@ember/service';
 
 /**
@@ -24,31 +23,28 @@ export default class BreadCrumb extends Component {
    * The route associated with this bread crumb. Will be set by the parent component.
    *
    * @property parent
-   * @type {BreadCrumbs}
-   * @public
    */
-  @readOnly('args.parent')
-  parent;
+  get parent() {
+    return this.args.parent;
+  }
 
   /**
    * The route associated with this bread crumb. Will be set by the parent component.
    *
    * @property routeInfo
-   * @type {RouteInfo}
-   * @public
    */
-  @readOnly('args.routeInfo')
-  routeInfo;
+  get routeInfo() {
+    return this.args.routeInfo;
+  }
 
   /**
    * The index of the breadcrumb in the route array. Will be set by the parent component.
    *
    * @property index
-   * @type {number}
-   * @public
    */
-  @readOnly('args.index')
-  index = 0;
+  get index() {
+    return this.args.index;
+  }
 
   /**
    * The metadata for this RouteInfo segment. Read-only property.
@@ -58,30 +54,31 @@ export default class BreadCrumb extends Component {
    * @public
    * @readonly
    */
-  @readOnly('routeInfo.metadata')
-  metadata;
+  get metadata() {
+    return this.routeInfo.metadata;
+  }
 
   /**
    * The breadcrumb metadata for this RouteInfo segment. Read-only property.
    *
    * @property breadcrumb
-   * @type {object}
-   * @public
-   * @readonly
    */
-  @readOnly('metadata.breadcrumb')
-  breadcrumb;
+  get breadcrumb() {
+    return this.metadata.breadcrumb;
+  }
 
-  @readOnly('routeInfo.name')
-  routeName;
+  get routeName() {
+    return this.routeInfo.name;
+  }
 
-  @readOnly('breadcrumb.label')
-  breadcrumbLabel;
+  get breadcrumbLabel() {
+    return this.breadcrumb.label;
+  }
 
-  @readOnly('breadcrumb.icon')
-  breadcrumbIcon;
+  get breadcrumbIcon() {
+    return this.breadcrumb.icon;
+  }
 
-  @computed('breadcrumbLabel', 'routeInfo', 'routeName')
   get text() {
 
     if (typeOf(this.breadcrumbLabel) === 'function') {
@@ -89,12 +86,11 @@ export default class BreadCrumb extends Component {
       return this.breadcrumbLabel(this.routeInfo);
     }
 
-    const label = this.breadcrumbLabel || `route-metadata.${this.routeName}.bread-crumb`;
+    let label = this.breadcrumbLabel || `route-metadata.${this.routeName}.bread-crumb`;
 
     return this.intl.t(label);
   }
 
-  @computed('breadcrumbIcon', 'parent.defaultIconClass')
   get icon() {
     return this.breadcrumbIcon || this.parent.defaultIconClass;
   }

@@ -1,7 +1,8 @@
 import Component from '@glimmer/component';
 
-import {action, computed} from '@ember/object';
+import {action} from '@ember/object';
 import {inject as service} from '@ember/service';
+import {tracked} from "@glimmer/tracking";
 
 /**
  * Component {{bread-crumbs}}.
@@ -13,6 +14,24 @@ export default class BreadCrumbs extends Component {
 
   @service
   routeMetadata;
+
+  @tracked
+  routeInfos = [];
+
+  constructor() {
+    super(...arguments);
+    this.routeMetadata.on('didTransition', this.didTransition);
+  }
+
+  willDestroy() {
+    this.routeMetadata.off('didTransition', this.didTransition);
+    super.willDestroy();
+  }
+
+  didTransition = () => {
+    this.routeInfos = this.routeMetadata.findCurrentMetadata('breadcrumb');
+    console.log('didTransition', this.routeInfos);
+  }
 
   /**
    * The default component used to render each individual bread crumb.
@@ -34,11 +53,6 @@ export default class BreadCrumbs extends Component {
    */
   get defaultIconClass() {
     return this.args.defaultIconClass || '#chevron-right';
-  }
-
-  @computed('routeMetadata.currentRoute')
-  get routeInfos() {
-    return this.routeMetadata.findCurrentMetadata('breadcrumb');
   }
 
   @action
