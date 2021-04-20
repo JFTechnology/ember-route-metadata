@@ -7,6 +7,6 @@ export default class DocsComponentsBreadcrumbsAltIconRoute extends Route {
       breadcrumb: {
         icon: '#edit',
       },
-    }
+    };
   }
 }

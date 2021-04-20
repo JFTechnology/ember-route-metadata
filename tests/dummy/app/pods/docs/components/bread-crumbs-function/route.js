@@ -7,10 +7,10 @@ export default class DocsComponentsBreadcrumbsFunctionRoute extends Route {
       breadcrumb: {
         label: this.label,
       },
-    }
+    };
   }
 
   label(routeInfo) {
-    return `The '${routeInfo.localName}' route`
+    return `The '${routeInfo.localName}' route`;
   }
 }

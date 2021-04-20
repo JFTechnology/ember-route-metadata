@@ -7,6 +7,6 @@ export default class DocsComponentsBreadcrumbsAltComponentRoute extends Route {
       breadcrumb: {
         component: 'custom-bread-crumb',
       },
-    }
+    };
   }
 }

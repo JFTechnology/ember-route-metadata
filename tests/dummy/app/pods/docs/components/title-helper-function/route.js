@@ -8,10 +8,10 @@ export default class DocsComponentsTitleHelperFunctionRoute extends Route {
       title: {
         label: this.label,
       },
-    }
+    };
   }
 
   label(routeInfo) {
-    return `The '${routeInfo.localName}' route`
+    return `The '${routeInfo.localName}' route`;
   }
 }

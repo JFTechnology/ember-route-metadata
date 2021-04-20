@@ -1,4 +1,4 @@
-module.exports = function(/* environment */) {
+module.exports = function (/* environment */) {
   return {
     /**
      * The locales that the application needs to support.

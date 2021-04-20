@@ -45,7 +45,7 @@ export default class RouteMetadataTitle extends Helper {
 
   _toLabel(routeInfo) {
 
-    const label = routeInfo.metadata?.[this.metadataKey].label || `route-metadata.${routeInfo.name}.page-title`
+    const label = routeInfo.metadata?.[this.metadataKey].label || `route-metadata.${routeInfo.name}.page-title`;
 
     return typeOf(label) === 'function' ? label(routeInfo) : this.intl.t(label);
   }

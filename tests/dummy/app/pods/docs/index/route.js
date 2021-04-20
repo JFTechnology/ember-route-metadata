@@ -9,6 +9,6 @@ export default class DocsIndexRoute extends Route {
         x: 400,
         y: 400,
       },
-    }
+    };
   }
 }

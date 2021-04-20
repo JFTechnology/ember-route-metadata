@@ -6,6 +6,6 @@ export default class DocsComponentsRoute extends Route {
     return {
       scroll: true,
       title: true,
-    }
+    };
   }
 }

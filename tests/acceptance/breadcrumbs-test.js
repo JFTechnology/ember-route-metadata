@@ -14,15 +14,15 @@ module('Acceptance | bread-crumbs', function (hooks) {
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').textContent.trim(), 'Route Metadata demo app');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').textContent.trim(), 'Docs');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').textContent.trim(), 'Bread crumbs');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(3) svg use').getAttribute('xlink:href'), '#chevron-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(3) svg use').getAttribute('xlink:href'), '#chevron-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(4)'), null);
   });
@@ -35,15 +35,15 @@ module('Acceptance | bread-crumbs', function (hooks) {
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').textContent.trim(), 'Route Metadata demo app');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').textContent.trim(), 'Docs');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').textContent.trim(), 'Alternative component');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').getAttribute('class'), 'bread-crumb bread-crumb-custom text-warning');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(3) svg use').getAttribute('xlink:href'), '#angle-double-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(3) svg use').getAttribute('xlink:href'), '#angle-double-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(4)'), null);
   });
@@ -56,11 +56,11 @@ module('Acceptance | bread-crumbs', function (hooks) {
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').textContent.trim(), 'Route Metadata demo app');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').textContent.trim(), 'Docs');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').textContent.trim(), 'Alternative icon');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').getAttribute('class'), 'bread-crumb');
@@ -77,15 +77,15 @@ module('Acceptance | bread-crumbs', function (hooks) {
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').textContent.trim(), 'Route Metadata demo app');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(1)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(1) svg use').getAttribute('xlink:href'), '#home', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').textContent.trim(), 'Docs');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(2)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(2) svg use').getAttribute('xlink:href'), '#chevron-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').textContent.trim(), 'The \'bread-crumbs-function\' route');
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(3)').getAttribute('class'), 'bread-crumb');
-    assert.equal(this.element.querySelector('.bread-crumb:nth-child(3) svg use').getAttribute('xlink:href'), '#chevron-right', "Icon value");
+    assert.equal(this.element.querySelector('.bread-crumb:nth-child(3) svg use').getAttribute('xlink:href'), '#chevron-right', 'Icon value');
 
     assert.equal(this.element.querySelector('.bread-crumb:nth-child(4)'), null);
   });

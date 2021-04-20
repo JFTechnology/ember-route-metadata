@@ -28,6 +28,6 @@ export default class RouteMetadataDebug extends Helper {
   }
 
   compute() {
-    console.debug(`RouteMetadataDebug : compute`);
+    console.debug('RouteMetadataDebug : compute');
   }
 }
