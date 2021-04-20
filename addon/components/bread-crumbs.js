@@ -30,7 +30,6 @@ export default class BreadCrumbs extends Component {
 
   didTransition = () => {
     this.routeInfos = this.routeMetadata.findCurrentMetadata('breadcrumb');
-    console.log('didTransition', this.routeInfos);
   }
 
   /**
