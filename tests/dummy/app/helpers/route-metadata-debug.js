@@ -1,27 +1,25 @@
 import Helper from '@ember/component/helper';
 
-import { inject as service } from '@ember/service';
+import {inject as service} from '@ember/service';
 
 export default class RouteMetadataDebug extends Helper {
 
   @service
   routeMetadata;
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.routeMetadata.on('metadata.breadcrumb', this, 'onEvent');
     this.routeMetadata.on('metadata.scroll', this, 'onEvent');
     this.routeMetadata.on('metadata.title', this, 'onEvent');
   }
 
-  destroy() {
-
+  willDestroy() {
     this.routeMetadata.off('metadata.breadcrumb', this, 'onEvent');
     this.routeMetadata.off('metadata.scroll', this, 'onEvent');
     this.routeMetadata.off('metadata.title', this, 'onEvent');
-
-    return super.destroy(...arguments);
+    super.willDestroy();
   }
 
   onEvent(key, transition) {
@@ -30,7 +28,6 @@ export default class RouteMetadataDebug extends Helper {
   }
 
   compute() {
-
     console.debug(`RouteMetadataDebug : compute`);
   }
 }
