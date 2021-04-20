@@ -6,6 +6,6 @@ export default class DocsComponentsTitleHelperRoute extends Route {
     return {
       breadcrumb: true,
       title: true,
-    }
+    };
   }
 }

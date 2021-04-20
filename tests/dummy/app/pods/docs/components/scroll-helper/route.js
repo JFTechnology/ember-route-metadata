@@ -7,6 +7,6 @@ export default class DocsComponentsScrollHelperRoute extends Route {
       breadcrumb: true,
       scroll: true,
       title: true,
-    }
+    };
   }
 }

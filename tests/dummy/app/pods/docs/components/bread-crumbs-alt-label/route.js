@@ -7,6 +7,6 @@ export default class DocsComponentsBreadcrumbsAltLabelRoute extends Route {
       breadcrumb: {
         label: 'alt-label',
       },
-    }
+    };
   }
 }

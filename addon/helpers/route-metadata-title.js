@@ -2,8 +2,6 @@ import Helper from '@ember/component/helper';
 
 import {typeOf} from '@ember/utils';
 
-import {getWithDefault} from '@ember/object';
-
 import {inject as service} from '@ember/service';
 
 /**
@@ -23,36 +21,31 @@ export default class RouteMetadataTitle extends Helper {
   @service
   intl;
 
-  @service
-  fastboot;
-
   /**
    * The metadata key to listen for.
    * @property {string}
    */
   metadataKey = 'title';
 
-  init() {
-    super.init(...arguments);
-    this.routeMetadata.on(`metadata.${this.metadataKey}`, this, 'recompute');
+  constructor() {
+    super(...arguments);
+    this.routeMetadata.on('metadata.title', this, 'recompute');
   }
 
-  destroy() {
-    this.routeMetadata.off(`metadata.${this.metadataKey}`, this, 'recompute');
-    return super.destroy(...arguments);
+  willDestroy() {
+    this.routeMetadata.off('metadata.title', this, 'recompute');
+    super.willDestroy();
   }
 
   compute() {
 
-    if (!this.routeMetadata.isFastBoot) {
-      const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
-      document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
-    }
+    let routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
+    document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
   }
 
   _toLabel(routeInfo) {
 
-    const label = getWithDefault(routeInfo, `metadata.${this.metadataKey}.label`, `route-metadata.${routeInfo.name}.page-title`)
+    const label = routeInfo.metadata?.[this.metadataKey].label || `route-metadata.${routeInfo.name}.page-title`;
 
     return typeOf(label) === 'function' ? label(routeInfo) : this.intl.t(label);
   }

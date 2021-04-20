@@ -1,7 +1,5 @@
 import Helper from '@ember/component/helper';
 
-import {getWithDefault} from '@ember/object';
-
 import {inject as service} from '@ember/service';
 
 /**
@@ -23,31 +21,33 @@ export default class RouteMetadataScroll extends Helper {
    */
   metadataKey = 'scroll';
 
-  init() {
-    super.init(...arguments);
-    this.routeMetadata.on(`metadata.${this.metadataKey}`, this, 'recompute');
+  constructor() {
+    super(...arguments);
+    this.routeMetadata.on('metadata.scroll', this, 'recompute');
   }
 
-  destroy() {
-    this.routeMetadata.off(`metadata.${this.metadataKey}`, this, 'recompute');
-    return super.destroy(...arguments);
+  willDestroy() {
+    this.routeMetadata.off('metadata.scroll', this, 'recompute');
+    super.willDestroy();
   }
 
   compute() {
 
-    if (!this.routeMetadata.isFastBoot) {
+    const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
 
-      const routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
+    if (routeInfos.length) {
 
-      if (routeInfos.length) {
+      const metadata = routeInfos.pop();
 
-        const metadata = routeInfos.pop();
+      let left = metadata?.metadata?.scroll?.x || 0;
+      let top = metadata?.metadata?.scroll?.y || 0;
+      let behavior = metadata?.metadata?.scroll?.behavior || 'instant';
 
-        const x = getWithDefault(metadata, `metadata.${this.metadataKey}.x`, 0);
-        const y = getWithDefault(metadata, `metadata.${this.metadataKey}.y`, 0);
-
-        window.scrollTo(x, y);
-      }
+      window.scrollTo({
+        left,
+        top,
+        behavior,
+      });
     }
   }
 }

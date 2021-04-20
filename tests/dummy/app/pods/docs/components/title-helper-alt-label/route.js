@@ -8,6 +8,6 @@ export default class DocsComponentsTitleHelperAltLabelRoute extends Route {
       title: {
         label: 'alt-label',
       },
-    }
+    };
   }
 }

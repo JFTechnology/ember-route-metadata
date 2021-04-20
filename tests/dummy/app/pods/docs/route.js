@@ -6,6 +6,6 @@ export default class DocsRoute extends Route {
     return {
       breadcrumb: true,
       title: true,
-    }
+    };
   }
 }

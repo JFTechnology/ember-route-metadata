@@ -5,6 +5,6 @@ export default class DocsComponentsBreadcrumbsRoute extends Route {
   buildRouteInfoMetadata() {
     return {
       breadcrumb: true,
-    }
+    };
   }
 }

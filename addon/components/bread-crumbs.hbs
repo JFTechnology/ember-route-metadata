@@ -1,4 +1,8 @@
-<div class="bread-crumbs" ...attributes>
+<div
+  {{did-insert this.didTransition}}
+        class="bread-crumbs"
+        ...attributes
+>
   {{#each this.routeInfos as |routeInfo index|}}
     {{component
             (if routeInfo.metadata.breadcrumb.component routeInfo.metadata.breadcrumb.component this.defaultComponent)

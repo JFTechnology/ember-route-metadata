@@ -24,6 +24,6 @@ export default class ApplicationRoute extends Route {
       breadcrumb: {
         icon: '#home'
       },
-    }
+    };
   }
 }

@@ -19,9 +19,17 @@ module.exports = {
     browser: true
   },
   rules: {
-    'no-console': 1,
-    'ember/no-jquery': 1,
-    'ember/no-observers': 1,
+    'object-curly-spacing': ['error', 'never'],
+    'semi': 'error',
+    'prefer-const': 'off',
+    'quotes': ['error', 'single'],
+    'eol-last': ['error', 'always'],
+    'ember/no-jquery': 'error',
+    'ember/no-get': 'warn',
+    'ember/no-computed-properties-in-native-classes': 'warn',
+    'ember/no-observers': 'warn',
+    'ember/no-controller-access-in-routes': 'warn',
+    'ember/require-computed-property-dependencies': 'warn'
   },
   overrides: [
     // node files
