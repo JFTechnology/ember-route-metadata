@@ -3,8 +3,6 @@ import {tracked} from '@glimmer/tracking';
 
 import Evented from '@ember/object/evented';
 
-import {get} from '@ember/object';
-
 import {assign} from '@ember/polyfills';
 
 /**
@@ -28,7 +26,7 @@ export default class RouteMetadataService extends Service.extend(Evented) {
    * For example if the settled transition is from A.B.C to A.D.E then this method will return the array of route infos [A,B,C].
    */
   @tracked
-  previousMetadata = [];
+  previousRouteInfos = [];
 
   /**
    * The array of all RouteInfo objects with metadata interpolated from the 'from' property of the last settled route
@@ -36,7 +34,7 @@ export default class RouteMetadataService extends Service.extend(Evented) {
    * For example if the settled transition is from A.B.C to A.D.E then this method will return the array of route infos [A,D,E].
    */
   @tracked
-  currentMetadata = [];
+  currentRouteInfos = [];
 
   /**
    * The 'diff' array of all RouteInfo objects with metadata interpolated from the from/to properties of the last
@@ -46,7 +44,17 @@ export default class RouteMetadataService extends Service.extend(Evented) {
    *
    */
   @tracked
-  transitionMetadata = [];
+  commonRouteInfos = [];
+
+  /**
+   * The 'diff' array of all RouteInfo objects with metadata interpolated from the from/to properties of the last
+   * settled route transition ordered from root to leaf.
+   * For example if the settled transition is from A.B.C to A.D.E then this method will return the array of route infos [D,E]. This is useful for adding routing behaviours
+   * such as scrolling that require knowledge of the change in path rather than the absolute settled path.
+   *
+   */
+  @tracked
+  transitionRouteInfos = [];
 
   constructor() {
     super(...arguments);
@@ -58,67 +66,72 @@ export default class RouteMetadataService extends Service.extend(Evented) {
   /**
    * Observer method that calculates all route segments traversed by a transition, aggregates any metadata keys in the
    * traversal path, and fires an event ('metadata.[key]') for each key.
-   *
    */
   onTransition(from, to) {
 
-    this.previousMetadata = _filterForMetadata(from);
-    this.currentMetadata = _filterForMetadata(to);
+    this.currentRouteInfos = _filterForMetadata(to);
+    this.previousRouteInfos = _filterForMetadata(from);
 
-    this.transitionMetadata = this.currentMetadata.filter((m, index) => {
+    this.transitionRouteInfos = this.currentRouteInfos.filter((m, index) => {
 
-      if (this.previousMetadata.length <= index) {
+      if (this.previousRouteInfos.length <= index) {
         return true;
       }
 
-      return m.name !== this.previousMetadata[index].name;
+      return m.name !== this.previousRouteInfos[index].name;
     });
 
-    let commonMetadata = this.currentMetadata.filter((m, index) => {
+    this.commonRouteInfos = this.currentRouteInfos.filter((m, index) => {
 
-      if (this.previousMetadata.length <= index) {
+      if (this.previousRouteInfos.length <= index) {
         return false;
       }
 
-      return m.name === this.previousMetadata[index].name;
+      return m.name === this.previousRouteInfos[index].name;
     });
 
-    let fromMetadata = this.previousMetadata.slice(commonMetadata.length);
-    let toMetadata = this.currentMetadata.slice(commonMetadata.length);
+    let fromMetadata = this.previousRouteInfos.slice(this.commonRouteInfos.length).map(r => r.metadata);
+    let toMetadata = this.currentRouteInfos.slice(this.commonRouteInfos.length).map(r => r.metadata);
 
     let metadataTraversal = {};
 
-    fromMetadata.map(r => r.metadata).forEach(m => assign(metadataTraversal, m));
-    toMetadata.map(r => r.metadata).forEach(m => assign(metadataTraversal, m));
+    fromMetadata.forEach(m => assign(metadataTraversal, m));
+    toMetadata.forEach(m => assign(metadataTraversal, m));
 
     this.trigger('didTransition');
-    Object.keys(metadataTraversal).forEach(key => this.trigger(`metadata.${key}`, key));
+
+    for (const key in metadataTraversal) {
+      this.trigger(`metadata.${key}`, key, this.transitionRouteInfos.map(ri => ri.metadata));
+    }
   }
 
   /**
    * @method findPreviousMetadata
    * @param {String} key  The metadata to search for.
    */
-  findPreviousMetadata(key) {
-    return this.previousMetadata.filter(info => info?.metadata ? [key] : undefined);
+  findPreviousRouteInfos(key) {
+    return this.previousRouteInfos.filter(keyFilter(key));
   }
 
   /**
    * @method findCurrentMetadata
    * @param {String} key  The metadata to search for.
    */
-  findCurrentMetadata(key) {
-    return this.currentMetadata.filter(info => get(info, `metadata.${key}`));
+  findCurrentRouteInfos(key) {
+    return this.currentRouteInfos.filter(keyFilter(key));
   }
 
   /**
    * @method findTransitionMetadata
    * @param {String} key  The metadata to search for.
-   * @return {RouteInfo[]} The matching metadata ordered from root to leaf.
    */
-  findTransitionMetadata(key) {
-    return this.transitionMetadata.filter(info => get(info, `metadata.${key}`));
+  findTransitionRouteInfos(key) {
+    return this.transitionRouteInfos.filter(keyFilter(key));
   }
+}
+
+function keyFilter(key) {
+  return (routeInfo) => routeInfo.metadata ? routeInfo.metadata[key] : false;
 }
 
 function _filterForMetadata(route) {
