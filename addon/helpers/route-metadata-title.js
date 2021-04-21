@@ -4,6 +4,8 @@ import {typeOf} from '@ember/utils';
 
 import {inject as service} from '@ember/service';
 
+const METADATA_KEY = 'title';
+
 /**
  * Helper class that listens the RouteMetadata service for 'metadata.title' events, calculates the current internationalized title, and sets the
  * document.title property accordingly.
@@ -21,12 +23,6 @@ export default class RouteMetadataTitle extends Helper {
   @service
   intl;
 
-  /**
-   * The metadata key to listen for.
-   * @property {string}
-   */
-  metadataKey = 'title';
-
   constructor() {
     super(...arguments);
     this.routeMetadata.on('metadata.title', this, 'recompute');
@@ -38,14 +34,13 @@ export default class RouteMetadataTitle extends Helper {
   }
 
   compute() {
-
-    let routeInfos = this.routeMetadata.findCurrentMetadata(this.metadataKey);
-    document.title = routeInfos.map(routeInfo => this._toLabel(routeInfo)).join(' | ');
+    let routeInfos = this.routeMetadata.findCurrentRouteInfos(METADATA_KEY);
+    document.title = routeInfos.map(this._toLabel).join(' | ');
   }
 
-  _toLabel(routeInfo) {
+  _toLabel = (routeInfo) => {
 
-    const label = routeInfo.metadata?.[this.metadataKey].label || `route-metadata.${routeInfo.name}.page-title`;
+    let label = routeInfo.metadata?.[METADATA_KEY].label || `route-metadata.${routeInfo.name}.page-title`;
 
     return typeOf(label) === 'function' ? label(routeInfo) : this.intl.t(label);
   }

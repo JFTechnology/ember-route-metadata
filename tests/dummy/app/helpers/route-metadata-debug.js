@@ -9,7 +9,6 @@ export default class RouteMetadataDebug extends Helper {
 
   constructor() {
     super(...arguments);
-
     this.routeMetadata.on('metadata.breadcrumb', this, 'onEvent');
     this.routeMetadata.on('metadata.scroll', this, 'onEvent');
     this.routeMetadata.on('metadata.title', this, 'onEvent');
@@ -23,7 +22,10 @@ export default class RouteMetadataDebug extends Helper {
   }
 
   onEvent(key, transition) {
-    console.debug(`RouteMetadataDebug onEvent : ${key} : ${transition}`);
+    console.log('RouteMetadataDebug onEvent', key, transition);
+    console.log('RouteMetadataDebug findPreviousRouteInfos', this.routeMetadata.findPreviousRouteInfos(key));
+    console.log('RouteMetadataDebug findCurrentRouteInfos', this.routeMetadata.findCurrentRouteInfos(key));
+    console.log('RouteMetadataDebug findTransitionRouteInfos', this.routeMetadata.findTransitionRouteInfos(key));
     this.recompute();
   }
 
