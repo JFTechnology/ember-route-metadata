@@ -4,6 +4,8 @@ import {tracked} from '@glimmer/tracking';
 import {action} from '@ember/object';
 import {inject as service} from '@ember/service';
 
+const METADATA_KEY = 'breadcrumb';
+
 /**
  * Component {{bread-crumbs}}.
  *
@@ -29,7 +31,7 @@ export default class BreadCrumbs extends Component {
   }
 
   didTransition = () => {
-    this.routeInfos = this.routeMetadata.findCurrentMetadata('breadcrumb');
+    this.routeInfos = this.routeMetadata.findCurrentRouteInfos(METADATA_KEY);
   }
 
   /**
